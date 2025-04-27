@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="es"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="page_title">Subcero X Evilgado Presenta: Pornitoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div id="intro-animation">
+        <div id="intro-logo-container">
+            <span id="intro-x">X</span>
+            <span id="intro-title">Pornitoo</span>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <header>
+            <nav>
+                <div class="logo" id="header-logo" title="Ir al inicio">
+                    <span class="logo-x">X</span><span class="logo-title">Pornitoo</span>
+                </div>
+
+                <div class="search-container">
+                    <input type="search" id="search-bar" data-translate-key="search_placeholder" placeholder="Buscar títulos...">
+                    <button id="search-button" data-translate-key="search_button">Buscar</button>
+                </div>
+
+                <div class="controls">
+                    <select id="genre-select">
+                        <option value="" id="genre-option-default" data-translate-key="genre_select">Género</option>
+                        <option value="accion" data-translate-key="genre_action">Acción</option>
+                        <option value="comedia" data-translate-key="genre_comedy">Comedia</option>
+                        </select>
+                    <div class="user-controls">
+                        <div class="user-icon" id="user-login-button" data-translate-key="login_tooltip" data-tooltip="Iniciar sesión"> <i class="fas fa-user"></i> </div>
+                        <div class="chat-icon" id="chat-button" data-translate-key="chat_tooltip" data-tooltip="Chat"> <i class="fas fa-comment-dots"></i> </div>
+                        <button id="settings-button" data-translate-key="settings_tooltip" title="Configuración"><i class="fas fa-cog"></i></button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="grid-view">
+            <h2 id="popular-title" data-translate-key="popular_title">Populares Ahora</h2>
+            <div class="poster-grid" id="poster-container">
+                <div class="poster-item-placeholder"></div>
+                <div class="poster-item-placeholder"></div>
+                <div class="poster-item-placeholder"></div>
+                <div class="poster-item-placeholder"></div>
+            </div>
+        </main>
+
+        <footer> by: Subcero X Evilgado </footer>
+
+    </div> <div id="floating-chat-button"><i class="fas fa-comments"></i></div>
+    <div class="chat-modal" id="chat-modal">
+        <div class="chat-header">
+            <h3 data-translate-key="chat_title">Chat de Pornitoo</h3>
+            <button class="close-chat" title="Cerrar chat"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-messages">
+             <div class="message received" data-translate-key="chat_welcome">¡Hola! Bienvenido...</div>
+             </div>
+        <div class="chat-input">
+            <input type="text" data-translate-key="chat_input_placeholder" placeholder="Escribe un mensaje...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <div id="settings-panel" class="settings-panel">
+        <div class="settings-header">
+            <h3 data-translate-key="settings_title">Ajustes</h3>
+            <button id="close-settings-button" class="close-settings-button" title="Cerrar ajustes">&times;</button>
+        </div>
+        <div class="settings-content">
+            <h4 data-translate-key="settings_theme_title">Tema de Color</h4>
+            <div class="theme-options">
+                <button class="theme-swatch" data-theme="green" style="background-color: #00ff00;" title="Verde Neón"></button>
+                <button class="theme-swatch" data-theme="red" style="background-color: #ff1a1a;" title="Rojo Intenso"></button>
+                <button class="theme-swatch" data-theme="purple" style="background-color: #9933ff;" title="Púrpura Eléctrico"></button>
+                <button class="theme-swatch" data-theme="blue" style="background-color: #007bff;" title="Azul Cibernético"></button>
+            </div>
+
+            <h4 data-translate-key="settings_language_title">Idioma</h4>
+            <div class="language-options">
+                 <button class="language-button" data-lang="es">Español</button>
+                 <button class="language-button" data-lang="en">English</button>
+                 </div>
+
+            <h4 data-translate-key="settings_other_title">Otros Ajustes</h4>
+            <div class="setting-option">
+                <label for="particle-toggle" data-translate-key="settings_particles">Efecto Partículas:</label>
+                <input type="checkbox" id="particle-toggle" checked>
+            </div>
+             <p style="opacity: 0.6; margin-top: 20px;" data-translate-key="settings_more_soon">(Más ajustes próximamente...)</p>
+        </div>
+    </div>
+
+     <div id="login-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="close-login-modal">&times;</button>
+            <h3 data-translate-key="login_modal_title">Iniciar Sesión / Registro</h3>
+            <p data-translate-key="login_modal_text">Funcionalidad no implementada en esta demo.</p>
+            <button class="button-primary" data-translate-key="login_google">Entrar con Google (Demo)</button>
+             <button class="button-secondary" data-translate-key="login_create_account">Crear Cuenta (Demo)</button>
+        </div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
