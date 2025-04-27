@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"> <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="detail-page-title">Detalle - Pornitoo</title>
@@ -7,15 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="main-content" class="visible"> <header>
+    <div id="main-content" class="visible">
+        <header>
             <nav>
                  <div class="logo" id="header-logo" title="Volver al inicio"> <span class="logo-x">X</span><span class="logo-title">Pornitoo</span> </div>
                  <div class="search-container"> <input type="search" id="search-bar" data-translate-key="search_placeholder" placeholder="Buscar títulos..."> <button id="search-button" data-translate-key="search_button">Buscar</button> </div>
                  <div class="controls">
                      <select id="genre-select"> <option value="" id="genre-option-default" data-translate-key="genre_select">Género</option> </select>
                      <div class="user-controls">
-                         <div class="user-icon" id="user-login-button" data-translate-key="login_tooltip" data-tooltip="Iniciar sesión"> <i class="fas fa-user"></i> </div>
-                         <div class="chat-icon" id="chat-button" data-translate-key="chat_tooltip" data-tooltip="Chat"> <i class="fas fa-comment-dots"></i> </div>
+                         <div class="user-icon" id="user-auth-button" data-translate-key="login_tooltip" data-tooltip="Iniciar sesión">
+                             <i class="fas fa-user"></i>
+                             </div>
+                         <div class="chat-icon" id="chat-link-button" data-translate-key="chat_tooltip" data-tooltip="Ir al Chat">
+                             <a href="chat.html"><i class="fas fa-comment-dots"></i></a>
+                         </div>
                          <button id="settings-button" data-translate-key="settings_tooltip" title="Configuración"><i class="fas fa-cog"></i></button>
                      </div>
                  </div>
@@ -23,21 +29,20 @@
         </header>
 
         <div id="detail-view-content" class="detail-page-layout">
-
              <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> <span data-translate-key="back_button">Volver</span></a>
 
              <div class="detail-content">
                  <div class="video-player-container">
                     <iframe id="video-player-iframe" src="" title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
+                 </div>
                  <div class="video-metadata">
                     <h2 id="detail-title">Cargando...</h2>
                     <div class="meta-info">
-                        <span id="detail-views">---</span> <span data-translate-key="views_count">Vistas</span> &bull; <span id="detail-date-prefix" data-translate-key="published_date">Publicado:</span> <span id="detail-date">---</span>
+                        <span id="detail-views">---</span> <span data-translate-key="views_count">Vistas</span> • <span id="detail-date-prefix" data-translate-key="published_date">Publicado:</span> <span id="detail-date">---</span>
                     </div>
                     <p class="description" id="detail-description">Cargando...</p>
-                </div>
-            </div>
+                 </div>
+             </div>
 
              <aside class="related-videos">
                 <h4 data-translate-key="related_videos_title">Más Videos</h4>
@@ -45,18 +50,42 @@
                     <div class="related-item-placeholder"></div>
                     <div class="related-item-placeholder"></div>
                 </div>
-            </aside>
+             </aside>
         </div>
 
         <footer> by: Subcero X Evilgado </footer>
+    </div>
 
-    </div> <div id="floating-chat-button"><i class="fas fa-comments"></i></div>
-    <div class="chat-modal" id="chat-modal"> </div>
-    <div id="settings-panel" class="settings-panel"> </div>
-    <div id="login-modal" class="modal-overlay"> </div>
+    <a href="chat.html" id="floating-chat-link-button" class="floating-chat-button"><i class="fas fa-comments"></i></a>
+
+    <div id="settings-panel" class="settings-panel">
+         <div class="settings-header">...</div>
+         <div class="settings-content">...</div>
+    </div>
+
+     <div id="login-modal" class="modal-overlay">
+         <div class="modal-content">...</div>
+     </div>
+
     <div class="particles" id="particles"></div>
 
-    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+
+      const firebaseConfig = {
+        apiKey: "TU_API_KEY", // <--- PON TU API KEY REAL AQUÍ
+        authDomain: "pornitoo-ff650.firebaseapp.com",
+        projectId: "pornitoo-ff650",
+        storageBucket: "pornitoo-ff650.appspot.com", // <--- CORREGIDO
+        messagingSenderId: "91185468535",
+        appId: "1:91185468535:web:598d7c22db95ca6b186272",
+        measurementId: "G-65Z9T8PHB7",
+        databaseURL: "https://pornitoo-ff650-default-rtdb.firebaseio.com" // <--- AÑADE ESTO
+      };
+      const app = initializeApp(firebaseConfig);
+      window.firebaseApp = app; // Make accessible globally
+    </script>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
-
