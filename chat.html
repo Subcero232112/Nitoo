@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Pornitoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> </head>
+<body class="chat-page-body"> <div id="chat-interface">
+        <header class="chat-page-header">
+            <a href="index.html" class="back-to-home"><i class="fas fa-arrow-left"></i></a>
+            <div class="chat-title-container">
+                <i class="fas fa-comments chat-header-icon"></i>
+                <h2 data-translate-key="chat_page_title">Chat General</h2>
+                </div>
+            <div class="user-icon small-header-icon" id="user-auth-button" data-translate-key="login_tooltip" data-tooltip="Iniciar sesión">
+                <i class="fas fa-user"></i>
+                </div>
+        </header>
+
+        <main class="chat-messages-container" id="chat-messages-list">
+            <div class="chat-loading" data-translate-key="chat_loading">Cargando mensajes...</div>
+        </main>
+
+        <footer class="chat-input-area">
+            <input type="text" id="chat-message-input" data-translate-key="chat_input_placeholder" placeholder="Escribe un mensaje..." disabled>
+            <button id="chat-send-button" disabled><i class="fas fa-paper-plane"></i></button>
+        </footer>
+    </div>
+
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="close-login-modal">×</button>
+            <h3 data-translate-key="login_modal_title">Iniciar Sesión / Registro</h3>
+            <p data-translate-key="login_modal_text_chat">Necesitas iniciar sesión para chatear.</p>
+            <button class="button-primary" id="google-signin-button">
+                <i class="fab fa-google"></i> <span data-translate-key="login_google_firebase">Entrar con Google</span>
+            </button>
+        </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+
+      const firebaseConfig = {
+        apiKey: "TU_API_KEY", // <--- PON TU API KEY REAL AQUÍ
+        authDomain: "pornitoo-ff650.firebaseapp.com",
+        projectId: "pornitoo-ff650",
+        storageBucket: "pornitoo-ff650.appspot.com", // <--- CORREGIDO
+        messagingSenderId: "91185468535",
+        appId: "1:91185468535:web:598d7c22db95ca6b186272",
+        measurementId: "G-65Z9T8PHB7",
+        databaseURL: "https://pornitoo-ff650-default-rtdb.firebaseio.com" // <--- AÑADE ESTO
+      };
+      const app = initializeApp(firebaseConfig);
+      window.firebaseApp = app; // Make accessible globally
+    </script>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="chat_script.js"></script> </body>
+</html>
