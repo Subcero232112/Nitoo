@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es"> <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate-key="page_title">Subcero X Evilgado Presenta: Pornitoo</title>
@@ -16,7 +17,6 @@
     </div>
 
     <div id="main-content">
-
         <header>
             <nav>
                 <div class="logo" id="header-logo" title="Ir al inicio">
@@ -35,8 +35,12 @@
                         <option value="comedia" data-translate-key="genre_comedy">Comedia</option>
                         </select>
                     <div class="user-controls">
-                        <div class="user-icon" id="user-login-button" data-translate-key="login_tooltip" data-tooltip="Iniciar sesión"> <i class="fas fa-user"></i> </div>
-                        <div class="chat-icon" id="chat-button" data-translate-key="chat_tooltip" data-tooltip="Chat"> <i class="fas fa-comment-dots"></i> </div>
+                        <div class="user-icon" id="user-auth-button" data-translate-key="login_tooltip" data-tooltip="Iniciar sesión">
+                            <i class="fas fa-user"></i>
+                            </div>
+                        <div class="chat-icon" id="chat-link-button" data-translate-key="chat_tooltip" data-tooltip="Ir al Chat">
+                             <a href="chat.html"><i class="fas fa-comment-dots"></i></a>
+                        </div>
                         <button id="settings-button" data-translate-key="settings_tooltip" title="Configuración"><i class="fas fa-cog"></i></button>
                     </div>
                 </div>
@@ -54,26 +58,14 @@
         </main>
 
         <footer> by: Subcero X Evilgado </footer>
-
-    </div> <div id="floating-chat-button"><i class="fas fa-comments"></i></div>
-    <div class="chat-modal" id="chat-modal">
-        <div class="chat-header">
-            <h3 data-translate-key="chat_title">Chat de Pornitoo</h3>
-            <button class="close-chat" title="Cerrar chat"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="chat-messages">
-             <div class="message received" data-translate-key="chat_welcome">¡Hola! Bienvenido...</div>
-             </div>
-        <div class="chat-input">
-            <input type="text" data-translate-key="chat_input_placeholder" placeholder="Escribe un mensaje...">
-            <button><i class="fas fa-paper-plane"></i></button>
-        </div>
     </div>
+
+    <a href="chat.html" id="floating-chat-link-button" class="floating-chat-button"><i class="fas fa-comments"></i></a>
 
     <div id="settings-panel" class="settings-panel">
         <div class="settings-header">
             <h3 data-translate-key="settings_title">Ajustes</h3>
-            <button id="close-settings-button" class="close-settings-button" title="Cerrar ajustes">&times;</button>
+            <button id="close-settings-button" class="close-settings-button" title="Cerrar ajustes">×</button>
         </div>
         <div class="settings-content">
             <h4 data-translate-key="settings_theme_title">Tema de Color</h4>
@@ -83,13 +75,11 @@
                 <button class="theme-swatch" data-theme="purple" style="background-color: #9933ff;" title="Púrpura Eléctrico"></button>
                 <button class="theme-swatch" data-theme="blue" style="background-color: #007bff;" title="Azul Cibernético"></button>
             </div>
-
             <h4 data-translate-key="settings_language_title">Idioma</h4>
             <div class="language-options">
                  <button class="language-button" data-lang="es">Español</button>
                  <button class="language-button" data-lang="en">English</button>
-                 </div>
-
+            </div>
             <h4 data-translate-key="settings_other_title">Otros Ajustes</h4>
             <div class="setting-option">
                 <label for="particle-toggle" data-translate-key="settings_particles">Efecto Partículas:</label>
@@ -101,16 +91,38 @@
 
      <div id="login-modal" class="modal-overlay">
         <div class="modal-content">
-            <button class="close-modal" id="close-login-modal">&times;</button>
+            <button class="close-modal" id="close-login-modal">×</button>
             <h3 data-translate-key="login_modal_title">Iniciar Sesión / Registro</h3>
-            <p data-translate-key="login_modal_text">Funcionalidad no implementada en esta demo.</p>
-            <button class="button-primary" data-translate-key="login_google">Entrar con Google (Demo)</button>
-             <button class="button-secondary" data-translate-key="login_create_account">Crear Cuenta (Demo)</button>
-        </div>
+            <p data-translate-key="login_modal_text_firebase">Inicia sesión para acceder a todas las funciones.</p>
+            <button class="button-primary" id="google-signin-button">
+                <i class="fab fa-google"></i> <span data-translate-key="login_google_firebase">Entrar con Google</span>
+            </button>
+            </div>
     </div>
 
     <div class="particles" id="particles"></div>
 
-    <script src="script.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      // Add other SDKs AS NEEDED in script.js (Auth, Database, etc.)
+
+      const firebaseConfig = {
+        apiKey: "TU_API_KEY", // <--- PON TU API KEY REAL AQUÍ
+        authDomain: "pornitoo-ff650.firebaseapp.com",
+        projectId: "pornitoo-ff650",
+        storageBucket: "pornitoo-ff650.appspot.com", // <--- CORREGIDO: .appspot.com
+        messagingSenderId: "91185468535",
+        appId: "1:91185468535:web:598d7c22db95ca6b186272",
+        measurementId: "G-65Z9T8PHB7",
+        databaseURL: "https://pornitoo-ff650-default-rtdb.firebaseio.com" // <--- AÑADE ESTO (Obtenlo de Realtime Database en tu consola)
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      // Export app instance if needed by other scripts (using a global variable or a module system)
+      window.firebaseApp = app;
+    </script>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
